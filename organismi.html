@@ -36,8 +36,8 @@
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container">
       <p class="crumbs"><a href="index.html">Home</a> · Organismi dirigenti</p>
-      <h1>Organismi dirigenti</h1>
-      <p>La struttura della Federazione regionale siciliana del Partito Comunista Italiano: Segreteria, Direzione e Comitato regionale, eletti dal Congresso regionale.</p>
+      <h1 id="org-titolo">Organismi dirigenti</h1>
+      <p id="org-sottotitolo">La struttura della Federazione regionale siciliana del Partito Comunista Italiano: Segreteria, Direzione e Comitato regionale, eletti dal Congresso regionale.</p>
     </div>
   </section>
   <div class="hero-strip" aria-hidden="true"></div>
@@ -48,7 +48,7 @@
       <!-- SEGRETARIO REGIONALE -->
       <span class="kicker">Segreteria</span>
       <h2 style="margin-bottom:24px">Segretario regionale</h2>
-      <div class="org-lead reveal">
+      <div class="org-lead reveal" id="org-segretario">
         <div class="org-photo"><span>Foto</span></div>
         <div>
           <div class="org-role">Segretario regionale</div>
@@ -63,7 +63,7 @@
       <!-- DIREZIONE REGIONALE -->
       <h3 class="org-section-title">Direzione regionale</h3>
       <p class="section-sub" style="margin-bottom:24px">L'organismo esecutivo che attua gli indirizzi politici della federazione tra una riunione e l'altra del Comitato regionale.</p>
-      <div class="org-grid">
+      <div class="org-grid" id="org-direzione">
         <div class="org-card reveal"><div class="av">★</div><h4>Nome Cognome</h4><span>Organizzazione</span></div>
         <div class="org-card reveal"><div class="av">★</div><h4>Nome Cognome</h4><span>Lavoro e vertenze</span></div>
         <div class="org-card reveal"><div class="av">★</div><h4>Nome Cognome</h4><span>Tesseramento</span></div>
@@ -75,7 +75,7 @@
       <!-- COMITATO REGIONALE -->
       <h3 class="org-section-title">Comitato regionale</h3>
       <p class="section-sub" style="margin-bottom:24px">L'organismo dirigente eletto dal Congresso regionale, che definisce gli indirizzi politici della federazione siciliana.</p>
-      <div class="org-grid">
+      <div class="org-grid" id="org-comitato">
         <div class="org-card reveal"><div class="av">PA</div><h4>Nome Cognome</h4><span>Palermo</span></div>
         <div class="org-card reveal"><div class="av">CT</div><h4>Nome Cognome</h4><span>Catania</span></div>
         <div class="org-card reveal"><div class="av">ME</div><h4>Nome Cognome</h4><span>Messina</span></div>
@@ -97,7 +97,7 @@
         <p><strong>Partito Comunista Italiano</strong><br />Federazione Sicilia</p>
         <p class="footer-small">Lavoro · Diritti · Pace · Uguaglianza</p>
       </div>
-      <div class="footer-col"><h4>Contatti</h4><ul>
+      <div class="footer-col"><h4>Contatti</h4><ul id="footer-contatti">
         <li>✉️ <a href="mailto:pcisicilia@yahoo.com">pcisicilia@yahoo.com</a></li>
         <li>📘 <a href="https://www.facebook.com/profile.php?id=61576921137339" target="_blank" rel="noopener">Pagina Facebook</a></li>
       </ul></div>
@@ -112,7 +112,10 @@
         <a href="https://www.ilpartitocomunistaitaliano.it/" target="_blank" rel="noopener" class="btn btn-sm btn-ghost-light">Sito nazionale ↗</a>
       </div>
     </div>
-    <div class="footer-bottom"><div class="container"><p>© <span id="year"></span> Partito Comunista Italiano — Federazione Sicilia.</p></div></div>
+    <div class="footer-bottom"><div class="container">
+      <p>© <span id="year"></span> Partito Comunista Italiano — Federazione Sicilia.</p>
+      <p class="footer-small">Sito ideato e curato da <strong>Giovanni Bucolo</strong> — © <span class="js-year"></span> Giovanni Bucolo. Tutti i diritti riservati. · <a href="note-legali.html">Note legali</a></p>
+    </div></div>
   </footer>
 
   <script src="js/script.js"></script>

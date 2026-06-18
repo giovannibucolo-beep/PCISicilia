@@ -53,7 +53,7 @@
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-inner">
-      <div class="hero-text">
+      <div class="hero-text" id="hero-text">
         <span class="eyebrow">★ Federazione regionale siciliana</span>
         <h1>Organizzare il <span class="hl">lavoro</span>.<br />Difendere i <span class="hl">diritti</span>.<br />Costruire il <span class="hl">socialismo</span>.</h1>
         <p class="lead">Siamo le comuniste e i comunisti che ogni giorno organizzano lotte e proposte nei quartieri, nei luoghi di lavoro e nelle scuole della Sicilia. Costruiamo insieme un'alternativa popolare.</p>
@@ -71,7 +71,7 @@
 
   <!-- ===== BANNER TESSERAMENTO ===== -->
   <div class="cta-banner">
-    <div class="container">
+    <div class="container" id="banner-tesseramento">
       <strong>Tesseramento 2026 aperto</strong>
       <span>Iscriviti al Partito Comunista Italiano e partecipa alla vita della federazione siciliana.</span>
       <a href="#iscriviti" class="btn btn-sm btn-gold">Iscriviti ora</a>
@@ -80,7 +80,7 @@
 
   <!-- ===== VALORI ===== -->
   <section class="values">
-    <div class="container values-grid">
+    <div class="container values-grid" id="valori-grid">
       <article class="value reveal"><div class="value-num">01</div><h3>Lavoro &amp; salario</h3><p>Per occupazione stabile, salari dignitosi e la fine del precariato che svuota la Sicilia.</p></article>
       <article class="value reveal"><div class="value-num">02</div><h3>Pace &amp; disarmo</h3><p>Contro la guerra e le servitù militari sull'isola. La Sicilia ponte di pace nel Mediterraneo.</p></article>
       <article class="value reveal"><div class="value-num">03</div><h3>Ambiente &amp; territorio</h3><p>Difesa del territorio, energia pubblica e contrasto allo sfruttamento delle risorse.</p></article>
@@ -91,7 +91,7 @@
   <!-- ===== CHI SIAMO ===== -->
   <section class="section" id="chi-siamo">
     <div class="container two-col">
-      <div class="col-text reveal">
+      <div class="col-text reveal" id="chisiamo-text">
         <span class="kicker">Chi siamo</span>
         <h2>Il Partito Comunista Italiano in Sicilia</h2>
         <p>La Federazione siciliana del PCI raccoglie i circoli e le compagne e i compagni attivi nelle province dell'isola. Continuiamo la storia e i valori del movimento operaio e comunista italiano, adattandoli alle battaglie di oggi.</p>
@@ -105,7 +105,7 @@
         <a href="storia.html" class="btn btn-solid">La nostra storia</a>
         <a href="organismi.html" class="btn btn-ghost">Organismi dirigenti</a>
       </div>
-      <aside class="col-stats reveal">
+      <aside class="col-stats reveal" id="chisiamo-stats">
         <div class="stat"><strong>9</strong><span>province presidiate</span></div>
         <div class="stat"><strong>1921</strong><span>dalla nostra storia</span></div>
         <div class="stat"><strong>100%</strong><span>dalla parte del lavoro</span></div>
@@ -240,7 +240,9 @@
         <p class="footer-small">Puoi iscriverti anche dal sito nazionale: <a href="https://www.ilpartitocomunistaitaliano.it/iscriviti/" target="_blank" rel="noopener" style="color:var(--gold)">ilpartitocomunistaitaliano.it/iscriviti</a></p>
       </div>
 
-      <form class="join-form reveal" id="joinForm" novalidate>
+      <form class="join-form reveal" id="joinForm" name="iscrizione" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="iscrizione" />
+        <p hidden><label>Non compilare se sei umano: <input name="bot-field" /></label></p>
         <div class="field"><label for="nome">Nome e cognome *</label><input type="text" id="nome" name="nome" required autocomplete="name" /></div>
         <div class="field-row">
           <div class="field"><label for="email">Email *</label><input type="email" id="email" name="email" required autocomplete="email" /></div>
@@ -264,7 +266,7 @@
       </div>
       <div class="footer-col">
         <h4>Contatti</h4>
-        <ul>
+        <ul id="footer-contatti">
           <li>✉️ <a href="mailto:pcisicilia@yahoo.com">pcisicilia@yahoo.com</a></li>
           <li>📘 <a href="https://www.facebook.com/profile.php?id=61576921137339" target="_blank" rel="noopener">Pagina Facebook</a></li>
           <li>📍 Sicilia</li>
@@ -286,7 +288,10 @@
         <a href="https://www.ilpartitocomunistaitaliano.it/" target="_blank" rel="noopener" class="btn btn-sm btn-ghost-light">Sito nazionale ↗</a>
       </div>
     </div>
-    <div class="footer-bottom"><div class="container"><p>© <span id="year"></span> Partito Comunista Italiano — Federazione Sicilia. Tutti i diritti riservati.</p></div></div>
+    <div class="footer-bottom"><div class="container">
+      <p>© <span id="year"></span> Partito Comunista Italiano — Federazione Sicilia.</p>
+      <p class="footer-small">Sito ideato e curato da <strong>Giovanni Bucolo</strong> — © <span class="js-year"></span> Giovanni Bucolo. Tutti i diritti riservati. · <a href="note-legali.html">Note legali</a></p>
+    </div></div>
   </footer>
 
   <script src="js/script.js"></script>
