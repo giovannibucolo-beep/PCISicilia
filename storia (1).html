@@ -36,8 +36,8 @@
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container">
       <p class="crumbs"><a href="index.html">Home</a> · Storia</p>
-      <h1>La storia del comunismo in Sicilia</h1>
-      <p>Dalle lotte contadine per la terra fino all'impegno antimafia e per la pace: oltre un secolo di battaglie del movimento operaio e comunista nell'isola, di cui la nostra federazione raccoglie eredità e valori.</p>
+      <h1 id="storia-titolo">La storia del comunismo in Sicilia</h1>
+      <p id="storia-sottotitolo">Dalle lotte contadine per la terra fino all'impegno antimafia e per la pace: oltre un secolo di battaglie del movimento operaio e comunista nell'isola, di cui la nostra federazione raccoglie eredità e valori.</p>
     </div>
   </section>
   <div class="hero-strip" aria-hidden="true"></div>
@@ -47,7 +47,7 @@
 
       <div class="note-box reveal">✍️ <strong>Lavoriamo insieme ai testi:</strong> questa è una prima traccia basata sulla storia del movimento comunista siciliano. Correggi, integra o riscrivi i passaggi: aggiungiamo episodi locali, circoli, testimonianze e foto d'archivio.</div>
 
-      <div class="timeline">
+      <div class="timeline" id="storia-timeline">
         <div class="tl-item reveal">
           <div class="tl-year">1892–94</div>
           <h3>I Fasci Siciliani dei Lavoratori</h3>
@@ -115,7 +115,7 @@
         <p><strong>Partito Comunista Italiano</strong><br />Federazione Sicilia</p>
         <p class="footer-small">Lavoro · Diritti · Pace · Uguaglianza</p>
       </div>
-      <div class="footer-col"><h4>Contatti</h4><ul>
+      <div class="footer-col"><h4>Contatti</h4><ul id="footer-contatti">
         <li>✉️ <a href="mailto:pcisicilia@yahoo.com">pcisicilia@yahoo.com</a></li>
         <li>📘 <a href="https://www.facebook.com/profile.php?id=61576921137339" target="_blank" rel="noopener">Pagina Facebook</a></li>
       </ul></div>
@@ -130,7 +130,10 @@
         <a href="https://www.ilpartitocomunistaitaliano.it/" target="_blank" rel="noopener" class="btn btn-sm btn-ghost-light">Sito nazionale ↗</a>
       </div>
     </div>
-    <div class="footer-bottom"><div class="container"><p>© <span id="year"></span> Partito Comunista Italiano — Federazione Sicilia.</p></div></div>
+    <div class="footer-bottom"><div class="container">
+      <p>© <span id="year"></span> Partito Comunista Italiano — Federazione Sicilia.</p>
+      <p class="footer-small">Sito ideato e curato da <strong>Giovanni Bucolo</strong> — © <span class="js-year"></span> Giovanni Bucolo. Tutti i diritti riservati. · <a href="note-legali.html">Note legali</a></p>
+    </div></div>
   </footer>
 
   <script src="js/script.js"></script>

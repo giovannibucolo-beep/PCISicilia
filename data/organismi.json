@@ -1,0 +1,32 @@
+{
+  "intro": {
+    "titolo": "Organismi dirigenti",
+    "sottotitolo": "La struttura della Federazione regionale siciliana del Partito Comunista Italiano: Segreteria, Direzione e Comitato regionale, eletti dal Congresso regionale."
+  },
+  "segretario": {
+    "ruolo": "Segretario regionale",
+    "nome": "Nome Cognome",
+    "profilo": "Breve profilo del Segretario regionale: ruolo, impegno politico e linee di lavoro della federazione. Inseriamo qui il testo definitivo e la foto.",
+    "email": "pcisicilia@yahoo.com",
+    "foto": ""
+  },
+  "direzione": [
+    { "nome": "Nome Cognome", "delega": "Organizzazione", "foto": "" },
+    { "nome": "Nome Cognome", "delega": "Lavoro e vertenze", "foto": "" },
+    { "nome": "Nome Cognome", "delega": "Tesseramento", "foto": "" },
+    { "nome": "Nome Cognome", "delega": "Formazione", "foto": "" },
+    { "nome": "Nome Cognome", "delega": "Comunicazione", "foto": "" },
+    { "nome": "Nome Cognome", "delega": "Esteri e pace", "foto": "" }
+  ],
+  "comitato": [
+    { "sigla": "PA", "nome": "Nome Cognome", "citta": "Palermo" },
+    { "sigla": "CT", "nome": "Nome Cognome", "citta": "Catania" },
+    { "sigla": "ME", "nome": "Nome Cognome", "citta": "Messina" },
+    { "sigla": "AG", "nome": "Nome Cognome", "citta": "Agrigento" },
+    { "sigla": "CL", "nome": "Nome Cognome", "citta": "Caltanissetta" },
+    { "sigla": "EN", "nome": "Nome Cognome", "citta": "Enna" },
+    { "sigla": "RG", "nome": "Nome Cognome", "citta": "Ragusa" },
+    { "sigla": "SR", "nome": "Nome Cognome", "citta": "Siracusa" },
+    { "sigla": "TP", "nome": "Nome Cognome", "citta": "Trapani" }
+  ]
+}

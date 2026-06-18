@@ -80,3 +80,129 @@ collections:
             fields:
               - { label: "Didascalia", name: "titolo", widget: "string" }
               - { label: "Immagine", name: "immagine", widget: "image", required: false }
+
+      - name: "home"
+        label: "Home (Hero · Chi siamo · Valori)"
+        file: "data/home.json"
+        format: json
+        fields:
+          - label: "Hero (testata)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Sopra-titolo", name: "eyebrow", widget: "string" }
+              - { label: "Titolo (le parole tra *asterischi* diventano oro)", name: "titolo", widget: "text" }
+              - { label: "Testo introduttivo", name: "lead", widget: "text" }
+              - { label: "Bottone principale", name: "btn_primario", widget: "string" }
+              - { label: "Bottone secondario", name: "btn_secondario", widget: "string" }
+          - label: "Banner tesseramento"
+            name: "banner"
+            widget: "object"
+            fields:
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Testo", name: "testo", widget: "string" }
+              - { label: "Bottone", name: "bottone", widget: "string" }
+          - label: "Valori (riquadri)"
+            name: "valori"
+            widget: "list"
+            summary: "{{fields.titolo}}"
+            fields:
+              - { label: "Numero", name: "numero", widget: "string" }
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Testo", name: "testo", widget: "text" }
+          - label: "Chi siamo"
+            name: "chisiamo"
+            widget: "object"
+            fields:
+              - { label: "Etichetta", name: "kicker", widget: "string" }
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - label: "Paragrafi"
+                name: "paragrafi"
+                widget: "list"
+                field: { label: "Paragrafo", name: "testo", widget: "text" }
+              - label: "Punti elenco"
+                name: "punti"
+                widget: "list"
+                field: { label: "Punto", name: "testo", widget: "string" }
+          - label: "Statistiche"
+            name: "statistiche"
+            widget: "list"
+            summary: "{{fields.numero}} — {{fields.etichetta}}"
+            fields:
+              - { label: "Numero", name: "numero", widget: "string" }
+              - { label: "Etichetta", name: "etichetta", widget: "string" }
+          - label: "Citazione"
+            name: "citazione"
+            widget: "object"
+            fields:
+              - { label: "Testo", name: "testo", widget: "string" }
+              - { label: "Fonte", name: "fonte", widget: "string" }
+
+      - name: "storia"
+        label: "Storia"
+        file: "data/storia.json"
+        format: json
+        fields:
+          - label: "Introduzione"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Sottotitolo", name: "sottotitolo", widget: "text" }
+          - label: "Tappe (cronologia)"
+            name: "tappe"
+            widget: "list"
+            label_singular: "Tappa"
+            summary: "{{fields.anno}} — {{fields.titolo}}"
+            fields:
+              - { label: "Anno / periodo", name: "anno", widget: "string" }
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Testo", name: "testo", widget: "text" }
+
+      - name: "organismi"
+        label: "Organismi dirigenti"
+        file: "data/organismi.json"
+        format: json
+        fields:
+          - label: "Introduzione"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Sottotitolo", name: "sottotitolo", widget: "text" }
+          - label: "Segretario regionale"
+            name: "segretario"
+            widget: "object"
+            fields:
+              - { label: "Ruolo", name: "ruolo", widget: "string" }
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Profilo", name: "profilo", widget: "text" }
+              - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "Foto", name: "foto", widget: "image", required: false }
+          - label: "Direzione regionale"
+            name: "direzione"
+            widget: "list"
+            label_singular: "Componente"
+            summary: "{{fields.nome}} — {{fields.delega}}"
+            fields:
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Delega / ruolo", name: "delega", widget: "string" }
+              - { label: "Foto", name: "foto", widget: "image", required: false }
+          - label: "Comitato regionale"
+            name: "comitato"
+            widget: "list"
+            label_singular: "Componente"
+            summary: "{{fields.nome}} ({{fields.citta}})"
+            fields:
+              - { label: "Sigla provincia (es. PA)", name: "sigla", widget: "string" }
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Città", name: "citta", widget: "string" }
+
+      - name: "contatti"
+        label: "Contatti (footer)"
+        file: "data/contatti.json"
+        format: json
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Link pagina Facebook", name: "facebook", widget: "string" }
+          - { label: "Città / sede", name: "citta", widget: "string", required: false }

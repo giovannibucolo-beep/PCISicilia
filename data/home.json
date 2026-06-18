@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "eyebrow": "★ Federazione regionale siciliana",
+    "titolo": "Organizzare il *lavoro*. Difendere i *diritti*. Costruire il *socialismo*.",
+    "lead": "Siamo le comuniste e i comunisti che ogni giorno organizzano lotte e proposte nei quartieri, nei luoghi di lavoro e nelle scuole della Sicilia. Costruiamo insieme un'alternativa popolare.",
+    "btn_primario": "Tesserati al PCI",
+    "btn_secondario": "Scopri le attività"
+  },
+  "banner": {
+    "titolo": "Tesseramento 2026 aperto",
+    "testo": "Iscriviti al Partito Comunista Italiano e partecipa alla vita della federazione siciliana.",
+    "bottone": "Iscriviti ora"
+  },
+  "valori": [
+    { "numero": "01", "titolo": "Lavoro & salario", "testo": "Per occupazione stabile, salari dignitosi e la fine del precariato che svuota la Sicilia." },
+    { "numero": "02", "titolo": "Pace & disarmo", "testo": "Contro la guerra e le servitù militari sull'isola. La Sicilia ponte di pace nel Mediterraneo." },
+    { "numero": "03", "titolo": "Ambiente & territorio", "testo": "Difesa del territorio, energia pubblica e contrasto allo sfruttamento delle risorse." },
+    { "numero": "04", "titolo": "Diritti & uguaglianza", "testo": "Sanità e scuola pubbliche, diritto alla casa, accoglienza e giustizia sociale." }
+  ],
+  "chisiamo": {
+    "kicker": "Chi siamo",
+    "titolo": "Il Partito Comunista Italiano in Sicilia",
+    "paragrafi": [
+      "La Federazione siciliana del PCI raccoglie i circoli e le compagne e i compagni attivi nelle province dell'isola. Continuiamo la storia e i valori del movimento operaio e comunista italiano, adattandoli alle battaglie di oggi.",
+      "Il nostro lavoro nasce dal basso: assemblee territoriali, vertenze sul lavoro, presidi, solidarietà concreta e iniziative culturali. Crediamo in una politica fatta di organizzazione, presenza quotidiana e radicamento sociale."
+    ],
+    "punti": [
+      "Circoli territoriali nelle principali città siciliane",
+      "Vertenze su lavoro, sanità, trasporti e diritto alla casa",
+      "Formazione politica e iniziative culturali",
+      "Solidarietà internazionalista e impegno per la pace"
+    ]
+  },
+  "statistiche": [
+    { "numero": "9", "etichetta": "province presidiate" },
+    { "numero": "1921", "etichetta": "dalla nostra storia" },
+    { "numero": "100%", "etichetta": "dalla parte del lavoro" }
+  ],
+  "citazione": {
+    "testo": "\"Studiare, organizzare, lottare.\"",
+    "fonte": "— dalla tradizione del movimento operaio"
+  }
+}

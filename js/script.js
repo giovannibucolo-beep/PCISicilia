@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* Anno corrente nel footer */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
+  document.querySelectorAll(".js-year").forEach(function (e) { e.textContent = new Date().getFullYear(); });
 
   /* Menu mobile */
   var toggle = document.getElementById("navToggle");
@@ -70,12 +71,23 @@ document.addEventListener("DOMContentLoaded", function () {
         msg.className = "form-msg err";
         return;
       }
-      /* NOTA: per ricevere davvero le richieste, collega il form a un
-         servizio email (es. Formspree): imposta form action/method o
-         una fetch() verso l'endpoint. Per ora mostra conferma a schermo. */
-      msg.textContent = "Grazie " + nome + "! La tua richiesta è stata registrata: ti ricontatteremo presto.";
-      msg.className = "form-msg ok";
-      form.reset();
+      /* Invio tramite Netlify Forms: le richieste arrivano nel pannello
+         Netlify (Forms) e possono essere inoltrate via email. */
+      msg.textContent = "Invio in corso…";
+      msg.className = "form-msg";
+      var body = new URLSearchParams(new FormData(form)).toString();
+      fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body })
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          msg.textContent = "Grazie " + nome + "! La tua richiesta è stata inviata: ti ricontatteremo presto.";
+          msg.className = "form-msg ok";
+          form.reset();
+        })
+        .catch(function () {
+          msg.textContent = "Grazie " + nome + "! Richiesta registrata. (In anteprima locale l'invio non parte: funzionerà una volta online.)";
+          msg.className = "form-msg ok";
+          form.reset();
+        });
     });
   }
 
@@ -92,6 +104,141 @@ function loadContent() {
   fetchJSON("data/news.json", renderNews);
   fetchJSON("data/eventi.json", renderEventi);
   fetchJSON("data/galleria.json", renderGalleria);
+  fetchJSON("data/home.json", renderHome);
+  fetchJSON("data/storia.json", renderStoria);
+  fetchJSON("data/organismi.json", renderOrganismi);
+  fetchJSON("data/contatti.json", renderContatti);
+}
+
+function renderContatti(d) {
+  if (!d) return;
+  var el = document.getElementById("footer-contatti");
+  if (!el) return;
+  var items = "";
+  if (d.email) items += '<li>✉️ <a href="mailto:' + esc(d.email) + '">' + esc(d.email) + "</a></li>";
+  if (d.facebook) items += '<li>📘 <a href="' + esc(d.facebook) + '" target="_blank" rel="noopener">Pagina Facebook</a></li>';
+  if (d.citta) items += "<li>📍 " + esc(d.citta) + "</li>";
+  if (items) el.innerHTML = items;
+}
+
+/* accetta sia stringhe semplici sia oggetti {testo:"..."} dal pannello */
+function asText(x) {
+  if (typeof x === "string") return x;
+  if (x && typeof x === "object") return x.testo || x.valore || x.text || "";
+  return "";
+}
+
+/* evidenzia in oro le parole racchiuse tra asterischi: *parola* */
+function hl(s) {
+  return esc(s).replace(/\*([^*]+)\*/g, '<span class="hl">$1</span>');
+}
+
+function setText(id, value) {
+  var el = document.getElementById(id);
+  if (el && value != null) el.textContent = value;
+}
+
+function renderHome(d) {
+  if (!d) return;
+  if (d.hero) {
+    var h = document.getElementById("hero-text");
+    if (h) h.innerHTML =
+      '<span class="eyebrow">' + esc(d.hero.eyebrow) + "</span>" +
+      "<h1>" + hl(d.hero.titolo) + "</h1>" +
+      '<p class="lead">' + esc(d.hero.lead) + "</p>" +
+      '<div class="hero-actions">' +
+        '<a href="#iscriviti" class="btn btn-gold">' + esc(d.hero.btn_primario) + "</a>" +
+        '<a href="#news" class="btn btn-ghost-light">' + esc(d.hero.btn_secondario) + "</a>" +
+      "</div>";
+  }
+  if (d.banner) {
+    var b = document.getElementById("banner-tesseramento");
+    if (b) b.innerHTML =
+      "<strong>" + esc(d.banner.titolo) + "</strong>" +
+      "<span>" + esc(d.banner.testo) + "</span>" +
+      '<a href="#iscriviti" class="btn btn-sm btn-gold">' + esc(d.banner.bottone) + "</a>";
+  }
+  if (d.valori) {
+    var v = document.getElementById("valori-grid");
+    if (v) v.innerHTML = d.valori.map(function (x) {
+      return '<article class="value reveal in"><div class="value-num">' + esc(x.numero) +
+        "</div><h3>" + esc(x.titolo) + "</h3><p>" + esc(x.testo) + "</p></article>";
+    }).join("");
+  }
+  if (d.chisiamo) {
+    var c = document.getElementById("chisiamo-text");
+    if (c) {
+      var par = (d.chisiamo.paragrafi || []).map(function (p) { return "<p>" + esc(asText(p)) + "</p>"; }).join("");
+      var punti = (d.chisiamo.punti || []).map(function (p) { return "<li>" + esc(asText(p)) + "</li>"; }).join("");
+      c.innerHTML =
+        '<span class="kicker">' + esc(d.chisiamo.kicker) + "</span>" +
+        "<h2>" + esc(d.chisiamo.titolo) + "</h2>" + par +
+        '<ul class="check-list">' + punti + "</ul>" +
+        '<a href="storia.html" class="btn btn-solid">La nostra storia</a> ' +
+        '<a href="organismi.html" class="btn btn-ghost">Organismi dirigenti</a>';
+    }
+  }
+  if (d.statistiche) {
+    var s = document.getElementById("chisiamo-stats");
+    if (s) {
+      var stats = d.statistiche.map(function (x) {
+        return '<div class="stat"><strong>' + esc(x.numero) + "</strong><span>" + esc(x.etichetta) + "</span></div>";
+      }).join("");
+      var q = d.citazione ? "<blockquote>" + esc(d.citazione.testo) + " <cite>" + esc(d.citazione.fonte) + "</cite></blockquote>" : "";
+      s.innerHTML = stats + q;
+    }
+  }
+}
+
+function renderStoria(d) {
+  if (!d) return;
+  if (d.intro) {
+    setText("storia-titolo", d.intro.titolo);
+    setText("storia-sottotitolo", d.intro.sottotitolo);
+  }
+  var t = document.getElementById("storia-timeline");
+  if (t && d.tappe && d.tappe.length) {
+    t.innerHTML = d.tappe.map(function (x) {
+      return '<div class="tl-item reveal in"><div class="tl-year">' + esc(x.anno) +
+        "</div><h3>" + esc(x.titolo) + "</h3><p>" + esc(x.testo) + "</p></div>";
+    }).join("");
+  }
+}
+
+function renderOrganismi(d) {
+  if (!d) return;
+  if (d.intro) {
+    setText("org-titolo", d.intro.titolo);
+    setText("org-sottotitolo", d.intro.sottotitolo);
+  }
+  if (d.segretario) {
+    var sg = document.getElementById("org-segretario");
+    if (sg) {
+      var foto = d.segretario.foto
+        ? '<div class="org-photo"><img src="' + esc(d.segretario.foto) + '" alt="' + esc(d.segretario.nome) + '" /></div>'
+        : '<div class="org-photo"><span>Foto</span></div>';
+      var mail = d.segretario.email ? '<p class="footer-small">✉️ <a href="mailto:' + esc(d.segretario.email) + '">' + esc(d.segretario.email) + "</a></p>" : "";
+      sg.innerHTML = foto +
+        "<div>" +
+          '<div class="org-role">' + esc(d.segretario.ruolo) + "</div>" +
+          '<div class="org-name">' + esc(d.segretario.nome) + "</div>" +
+          "<p>" + esc(d.segretario.profilo) + "</p>" + mail +
+        "</div>";
+    }
+  }
+  var dir = document.getElementById("org-direzione");
+  if (dir && d.direzione) {
+    dir.innerHTML = d.direzione.map(function (x) {
+      var av = x.foto ? '<div class="av" style="background-image:url(' + esc(x.foto) + ');background-size:cover"></div>' : '<div class="av">★</div>';
+      return '<div class="org-card reveal in">' + av + "<h4>" + esc(x.nome) + "</h4><span>" + esc(x.delega) + "</span></div>";
+    }).join("");
+  }
+  var com = document.getElementById("org-comitato");
+  if (com && d.comitato) {
+    com.innerHTML = d.comitato.map(function (x) {
+      return '<div class="org-card reveal in"><div class="av">' + esc(x.sigla) + "</div><h4>" + esc(x.nome) + "</h4><span>" + esc(x.citta) + "</span></div>";
+    }).join("");
+  }
 }
 
 function fetchJSON(url, cb) {

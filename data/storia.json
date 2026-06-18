@@ -1,0 +1,18 @@
+{
+  "intro": {
+    "titolo": "La storia del comunismo in Sicilia",
+    "sottotitolo": "Dalle lotte contadine per la terra fino all'impegno antimafia e per la pace: oltre un secolo di battaglie del movimento operaio e comunista nell'isola, di cui la nostra federazione raccoglie eredità e valori."
+  },
+  "tappe": [
+    { "anno": "1892–94", "titolo": "I Fasci Siciliani dei Lavoratori", "testo": "Il grande movimento di contadini, zolfatari e operai siciliani pone per primo la questione sociale nell'isola: è la radice da cui nascerà il movimento socialista e poi comunista." },
+    { "anno": "1921", "titolo": "Nasce il Partito Comunista", "testo": "Al Congresso di Livorno nasce il Partito Comunista d'Italia. Anche in Sicilia si formano le prime sezioni, radicate tra braccianti, minatori e operai." },
+    { "anno": "1926–43", "titolo": "Clandestinità e antifascismo", "testo": "Sotto il fascismo il partito è messo fuori legge. Molti comunisti siciliani conoscono carcere, confino ed esilio, mantenendo viva l'organizzazione clandestina e l'antifascismo." },
+    { "anno": "1944–46", "titolo": "La rinascita e Girolamo Li Causi", "testo": "Dopo la Liberazione il PCI si riorganizza in Sicilia. Girolamo Li Causi diventa una delle figure-guida del comunismo siciliano, alla testa delle lotte popolari e democratiche." },
+    { "anno": "1° maggio 1947", "titolo": "La strage di Portella della Ginestra", "testo": "Pochi giorni dopo la vittoria del Blocco del Popolo alle elezioni regionali, la folla riunita per la Festa dei Lavoratori viene colpita a fucilate: undici morti e decine di feriti. Una ferita che segna la storia del movimento operaio siciliano." },
+    { "anno": "Anni '50", "titolo": "Le lotte per la terra", "testo": "Braccianti e contadini, con il PCI e la CGIL, occupano le terre incolte del latifondo. Le lotte aprono la strada alla riforma agraria e a una nuova stagione di diritti." },
+    { "anno": "Anni '60–'70", "titolo": "Emanuele Macaluso e la sinistra siciliana", "testo": "Dirigente comunista e sindacalista, Emanuele Macaluso è tra i protagonisti della battaglia per il lavoro, contro la mafia e per il riscatto sociale della Sicilia." },
+    { "anno": "30 aprile 1982", "titolo": "Pio La Torre", "testo": "Segretario regionale del PCI siciliano e dirigente nazionale, Pio La Torre promuove la legge che introduce il reato di associazione mafiosa e la confisca dei beni, e guida la mobilitazione contro i missili a Comiso. Viene ucciso da Cosa Nostra a Palermo, insieme a Rosario Di Salvo." },
+    { "anno": "Anni '80", "titolo": "Pace e disarmo: Comiso", "testo": "Il movimento per la pace si oppone all'installazione dei missili nella base di Comiso. La Sicilia diventa simbolo internazionale della lotta contro la guerra e per il disarmo." },
+    { "anno": "Oggi", "titolo": "La federazione siciliana del PCI", "testo": "Il Partito Comunista Italiano raccoglie questa storia e questi valori e li porta nelle battaglie di oggi: lavoro, sanità e scuola pubbliche, diritto alla casa, ambiente, antifascismo e pace." }
+  ]
+}
