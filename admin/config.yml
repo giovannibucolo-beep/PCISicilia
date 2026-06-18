@@ -1,0 +1,82 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Lingua del pannello
+locale: it
+
+# Cartella dove vengono caricate le immagini
+media_folder: "immagini"
+public_folder: "/immagini"
+
+site_url: https://example.netlify.app
+display_url: https://example.netlify.app
+
+collections:
+  - name: "contenuti"
+    label: "Contenuti del sito"
+    description: "Modifica news, eventi e galleria fotografica della home."
+    files:
+      - name: "news"
+        label: "News & Attività"
+        file: "data/news.json"
+        format: json
+        fields:
+          - label: "Notizie"
+            name: "items"
+            widget: "list"
+            label_singular: "Notizia"
+            summary: "{{fields.titolo}}"
+            fields:
+              - { label: "Etichetta (es. Lavoro, Pace)", name: "tag", widget: "string" }
+              - { label: "Data / fonte", name: "data", widget: "string", hint: "Es. 14 Giugno 2026 · Nazionale" }
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Testo", name: "testo", widget: "text" }
+              - { label: "Link (facoltativo)", name: "link", widget: "string", required: false }
+              - { label: "Testo del link", name: "etichetta_link", widget: "string", required: false, default: "Leggi →" }
+
+      - name: "eventi"
+        label: "Eventi"
+        file: "data/eventi.json"
+        format: json
+        fields:
+          - label: "Prossimi eventi"
+            name: "prossimi"
+            widget: "list"
+            label_singular: "Evento"
+            summary: "{{fields.titolo}}"
+            required: false
+            fields:
+              - { label: "Giorno (numero o ★)", name: "giorno", widget: "string" }
+              - { label: "Mese / etichetta", name: "mese", widget: "string" }
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Luogo e orario", name: "luogo", widget: "string" }
+              - { label: "Descrizione", name: "descrizione", widget: "text" }
+          - label: "Eventi passati"
+            name: "passati"
+            widget: "list"
+            label_singular: "Evento passato"
+            summary: "{{fields.titolo}}"
+            required: false
+            fields:
+              - { label: "Giorno (numero o ★)", name: "giorno", widget: "string" }
+              - { label: "Mese / etichetta", name: "mese", widget: "string" }
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Luogo", name: "luogo", widget: "string" }
+              - { label: "Descrizione", name: "descrizione", widget: "text" }
+              - { label: "Link (facoltativo)", name: "link", widget: "string", required: false }
+              - { label: "Testo del link", name: "etichetta_link", widget: "string", required: false }
+
+      - name: "galleria"
+        label: "Galleria foto"
+        file: "data/galleria.json"
+        format: json
+        fields:
+          - label: "Foto"
+            name: "foto"
+            widget: "list"
+            label_singular: "Foto"
+            summary: "{{fields.titolo}}"
+            fields:
+              - { label: "Didascalia", name: "titolo", widget: "string" }
+              - { label: "Immagine", name: "immagine", widget: "image", required: false }
